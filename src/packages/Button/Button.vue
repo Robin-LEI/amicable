@@ -37,7 +37,10 @@
           return true
         }
       },
-      loading: Boolean
+      loading: {
+        type: Boolean,
+        default: false
+      }
     },
     data() {
       return {

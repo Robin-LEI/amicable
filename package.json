@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "amicable-ui",
   "version": "1.1.0",
   "private": false,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test": "karma start",
-    "lib": "vue-cli-service build --target lib --name ed-ui ./src/packages/index.js"
+    "lib": "vue-cli-service build --target lib --name amicable-ui ./src/packages/index.js"
   },
   "main": "./dist/ed-ui.umd.min.js",
   "dependencies": {
