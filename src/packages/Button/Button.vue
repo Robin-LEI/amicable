@@ -1,11 +1,11 @@
 <template>
-  <div v-if="this.$slots.default" class="ed-button" :class="classes" @click="$emit('click', $event)">
+  <button v-if="this.$slots.default" :disabled="disabled" class="ed-button" :class="classes" @click="$emit('click', $event)">
     <ed-icon :icon="icon" v-if="icon && !loading" class="icon"></ed-icon>
     <ed-icon icon="loading" v-if="loading"></ed-icon>
     <span>
       <slot></slot>
     </span>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -40,6 +40,10 @@
       loading: {
         type: Boolean,
         default: false
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -55,6 +59,12 @@
         }
         if (this.iconPosition) {
           types.push(`ed-button-${this.iconPosition}`)
+        }
+        if (this.loading) {
+          types.push('is-loading')
+        }
+        if (this.disabled) {
+          types.push('is-disabled')
         }
         return types
       }
@@ -84,7 +94,14 @@ $active-color: #3a8ee6;
   display: inline-flex;
   justify-content: center;
   vertical-align: middle;
-
+  &.is-disabled,
+  &.is-disabled:focus,
+  &.is-disabled:hover {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
   &:hover {
     border-color: $border-color;
     background: $background;
@@ -170,6 +187,67 @@ $active-color: #3a8ee6;
     span {
       order: 1;
     }
+  }
+}
+
+.ed-button-primary.is-disabled,
+.ed-button-primary.is-disabled:active,
+.ed-button-primary.is-disabled:focus,
+.ed-button-primary.is-disabled:hover {
+  color: #fff;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
+}
+
+.ed-button-success.is-disabled,
+.ed-button-success.is-disabled:active,
+.ed-button-success.is-disabled:focus,
+.ed-button-success.is-disabled:hover {
+  color: #fff;
+  background-color: #b3e19d;
+  border-color: #b3e19d;
+}
+
+.ed-button-info.is-disabled,
+.ed-button-info.is-disabled:active,
+.ed-button-info.is-disabled:focus,
+.ed-button-info.is-disabled:hover {
+  color: #fff;
+  background-color: #c8c9cc;
+  border-color: #c8c9cc;
+}
+
+.ed-button-warning.is-disabled,
+.ed-button-warning.is-disabled:active,
+.ed-button-warning.is-disabled:focus,
+.ed-button-warning.is-disabled:hover {
+  color: #fff;
+  background-color: #f3d19e;
+  border-color: #f3d19e;
+}
+
+.ed-button-danger.is-disabled,
+.ed-button-danger.is-disabled:active,
+.ed-button-danger.is-disabled:focus,
+.ed-button-danger.is-disabled:hover {
+  color: #fff;
+  background-color: #fab6b6;
+  border-color: #fab6b6;
+}
+
+.ed-button.is-loading {
+  opacity: 0.85;
+  pointer-events: none;
+  .ed-icon {
+    animation: rotating 2s linear infinite;
+  }
+}
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
   }
 }
 </style>
