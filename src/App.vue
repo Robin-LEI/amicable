@@ -11,7 +11,7 @@
     <ed-button type="primary" icon="chenggong">测试按钮</ed-button>
     <ed-button type="primary" icon="chenggong" icon-position="left">测试按钮</ed-button>
     <ed-button type="primary" icon="chenggong" icon-position="right">测试按钮</ed-button>
-    <ed-button type="primary" icon="chenggong" loading @click="onClick">测试按钮</ed-button>
+    <ed-button type="primary" :loading="true" @click="onClick">测试按钮</ed-button>
   </div>
 </template>
 

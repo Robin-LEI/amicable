@@ -1,5 +1,5 @@
 module.exports = {
-  title: "ed-ui",
+  title: "amicable-ui",
   description: "ui组件库",
   dest: "./build",
   port: 1234,

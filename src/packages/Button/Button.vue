@@ -235,13 +235,20 @@ $active-color: #3a8ee6;
   border-color: #fab6b6;
 }
 
-.ed-button.is-loading {
-  opacity: 0.85;
+.ed-button-primary.is-loading,
+.ed-button-primary.is-loading:active,
+.ed-button-primary.is-loading:focus,
+.ed-button-primary.is-loading:hover {
+  color: #fff;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
   pointer-events: none;
   .ed-icon {
+    color: #fff;
     animation: rotating 2s linear infinite;
   }
 }
+
 @keyframes rotating {
   0% {
     transform: rotate(0deg);

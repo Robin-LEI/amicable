@@ -60,17 +60,19 @@
 <demo-block>
 
 ::: slot source
-<ed-button type="primary" loading>主要按钮</ed-button>
+<!-- <ed-button type="primary" :loading="true">主要按钮</ed-button> -->
+<button-disabled></button-disabled>
 :::
 
 ::: slot highlight
 ```html
-<ed-button type="primary" loading>主要按钮</ed-button>
+<ed-button type="primary" :loading="true">测试按钮</ed-button>
 ```
 :::
 </demo-block>
 
-## Attributes
+### Attributes
+
 参数|说明|类型|可选值|默认值
 :-|:-|:-|:-|:-|:-|
 type|类型|string|primary/success/danger/info/warning|default
